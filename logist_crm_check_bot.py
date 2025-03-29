@@ -18,11 +18,18 @@ def main():
     mybot = Updater(tgtoken, use_context=True)
     dp = mybot.dispatcher
     dp.add_handler(CommandHandler('start', greet_user))
+    dp.add_handler(CommandHandler('template', send_template))
+
     dp.add_handler(MessageHandler(Filters.text, talk_to_me))
 
     logging.info("Бот стартовал")
 
     mybot.start_polling()
     mybot.idle()
+
+def send_template(update, context):
+    print("Пользователь запросил шаблон")
+    update.message.reply_text("Держи шаблон")
+    update.message.reply_text("Сам шаблон\n\nСтрока1\n\nСтрока2")
 
 main()
