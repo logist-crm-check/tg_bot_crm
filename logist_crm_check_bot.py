@@ -27,9 +27,14 @@ def main():
     mybot.start_polling()
     mybot.idle()
 
+TEMPLATE_ONE="""ПРОВЕРКА
+авто, водитель, ООО (ИП)
+[удалите из перечня те объекты, которые не нужно проверять]
+"""
+
 def send_template(update, context):
     print("Пользователь запросил шаблон")
     update.message.reply_text("Держи шаблон")
-    update.message.reply_text("Сам шаблон\n\nСтрока1\n\nСтрока2")
+    update.message.reply_text(TEMPLATE_ONE)
 
 main()
